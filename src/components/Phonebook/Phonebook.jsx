@@ -27,7 +27,7 @@ export const Phonebook = () => {
     }
 
     const removeContact = (contactId) => {
-        setContacts(contacts.filter(item => item.id !== contactId))
+        setContacts(prev => prev.filter(item => item.id !== contactId))
     }
 
     const contactAlreadyExists = (name, number) => {
@@ -39,7 +39,7 @@ export const Phonebook = () => {
         return alert(`${name} ${number} is already in Phonebook`);
         }
 
-        setContacts([{ id: nanoid(), name, number }, ...contacts])
+        setContacts(prev => [{ id: nanoid(), name, number }, ...prev])
     }
 
     return <>
